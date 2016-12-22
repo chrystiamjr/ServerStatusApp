@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Registro Geral</h1>
+    <button class="button button-clear button-primary" ng-click="geral.hide()"><span class="ion-android-close" style="font-size: 30px"></span> &nbsp;</button>
+  </ion-header-bar>
+  <ion-content class="padding" ng-controller="AllHistoryCtrl">
+
+    <div class="card" ng-repeat="temp in resultadosGerais">
+      <div class="item item-divider" style="text-align: center">
+        <p><b>{{temp.horario}}</b></p>
+      </div>
+      <div class="item item-text-wrap">
+        <p>
+          Temperatura: {{temp.temperatura}} ºC <br>
+          Umidade do ar: {{temp.umidade}}%
+        </p>
+      </div>
+      <!--<div class="item item-divider">-->
+      <!--Footer-->
+      <!--</div>-->
+    </div>
+  </ion-content>
+</ion-modal-view>

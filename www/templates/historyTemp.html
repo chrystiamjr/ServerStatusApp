@@ -1,0 +1,28 @@
+<ion-view view-title="Registros Recentes">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-controller="LogoutCtrl" ng-click="logout()">
+      <span class="ion-power"> Logout</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    &nbsp;
+    <div class="item item-divider" style="padding: 5px !important">
+      <button ng-click="geral.show()" class="button button-full button-positive">Histórico Geral</button>
+    </div>
+
+    <div class="card" ng-repeat="temp in resultados | limitTo: 8">
+      <div class="item item-divider" style="text-align: center">
+        <p><b>{{temp.horario}}</b></p>
+      </div>
+      <div class="item item-text-wrap">
+        <p>
+          Temperatura: {{temp.temperatura}} ºC <br>
+          Umidade do ar: {{temp.umidade}}%
+        </p>
+      </div>
+      <!--<div class="item item-divider">-->
+        <!--Footer-->
+      <!--</div>-->
+    </div>
+  </ion-content>
+</ion-view>

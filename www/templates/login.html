@@ -1,0 +1,49 @@
+<ion-view view-title="PI 2016">
+  <ion-content class="padding" scroll="false">
+    <div style="text-align: center" class="hide-on-keyboard-open">
+      <h2 style=" margin-top: 10px">
+        <i class="icon ion-thermometer" style="color: rgba(30,144,255, 0.9);"></i>
+        ServerStatus
+        <i class="icon ion-thermometer" style="color: #cc0000"></i>
+      </h2>
+      <img src="img/logo.png" class="logo" style="width: 160px; height: 160px; margin-top: 8px">
+    </div>
+
+    <div class="list card padding">
+
+      <label class="item item-input">
+        <span class="input-label">Username:</span>
+        <input type="text" ng-model="userLogin.username" required="required">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Senha:</span>
+        <input type="password" ng-model="userLogin.passwordLogin" required="required">
+      </label>
+
+      <button ng-disabled="!userLogin.username || !userLogin.passwordLogin" ng-click="signIn(userLogin)" class="button button-block button-positive activated">
+        Conectar
+      </button>
+
+
+      <div class="card" style="margin: 0px">
+        <div class="item item-divider">
+          <div class="item item-toggle" style="background-color: #f5f5f5">
+            <p>Mantenha-me conectado</p>
+            <label class="toggle toggle-success">
+              <input type="checkbox" ng-model="userLogin.reminder">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list" style="text-align:center; padding-bottom: 20px">
+      <button ng-click="modal.show()" class="button button-small button-outline icon-left ion-person-add button-positive">
+        Criar Novo Usuário
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

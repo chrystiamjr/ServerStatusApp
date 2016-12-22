@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Criar Novo Usuário</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()"><span class="ion-android-close" style="font-size: 30px"></span> &nbsp;</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div style="text-align: center">
+      <h2>
+        <i class="icon ion-thermometer" style="color: rgba(30,144,255, 0.9);"></i>
+          ServerStatus
+        <i class="icon ion-thermometer" style="color: #cc0000"></i>
+      </h2>
+      <img src="img/logo.png" class="logo" style="width: 180px; height: 180px; margin-bottom: 15px">
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Username:</span>
+        <input ng-model="user.username" type="text" autofocus required="required">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Senha:</span>
+        <input ng-model="user.password" type="password" required="required">
+      </label>
+      <button ng-disabled="!user.username || !user.password" class="button button-full button-positive" ng-click="createUser(user)">Cadastrar</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

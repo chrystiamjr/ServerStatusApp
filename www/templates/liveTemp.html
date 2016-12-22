@@ -1,0 +1,48 @@
+<ion-view view-title="Live View Temperature">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-controller="LogoutCtrl" ng-click="logout()">
+      <span class="ion-power"> Logout</span>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+
+    <div class="card">
+      <div class="item item-divider" style="text-align: center">
+        <p ng-repeat="h in live | limitTo: 1"><b>{{h.horario}}</b></p>
+      </div>
+
+      <div ng-if="live[0].temperatura <= 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(0, 0, 255, 0.7); height: 150px; text-align: center">
+        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 25px;">
+          Temperatura: {{t.temperatura}} ºC <br>
+          Umidade do ar: {{t.umidade}}%
+        </h1>
+      </div>
+
+      <div ng-if="live[0].temperatura > 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(255, 0, 0, 0.7); height: 150px; text-align: center">
+        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 25px;">
+          Temperatura: {{t.temperatura}} ºC <br>
+          Umidade do ar: {{t.umidade}}%
+        </h1>
+      </div>
+
+      <div class="item item-divider"></div>
+
+    </div>
+    <hr style="margin-top: -10px;">
+
+    <div class="list">
+      <div class="item item-divider">
+        <p><b>Instruções:</b></p>
+      </div>
+      <div class="item item-text-wrap pq">
+        <p>• O arduino atualizará a informação do banco a cada cinco segundos;</p>
+      </div>
+      <div class="item item-text-wrap pq">
+        <p>• O aplicativo realizará a requisição dos dados no mesmo período;</p>
+      </div>
+      <div class="item item-text-wrap pq">
+        <p>• O limiar de alteração da cor de fundo da medição é 25 ºC;</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
