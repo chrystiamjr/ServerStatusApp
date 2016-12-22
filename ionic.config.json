@@ -1,4 +1,13 @@
 {
   "name": "PI_2016",
-  "app_id": "56eed4d9"
+  "app_id": "56eed4d9",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
