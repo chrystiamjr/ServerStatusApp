@@ -19,8 +19,11 @@ angular.module('myPiApp', ['ionic', 'myPiApp.controllers', 'myPiApp.services','n
   $ionicPlatform.ready(function() {
 
     // Checa se o usuário já estava logado ou não!
-    if($localStorage.token.length != 0) $state.go('tab.dash');
-    else $state.go('login');
+    if($localStorage.token != null) {
+      if ($localStorage.token.length != 0) $state.go('tab.dash');
+      else $state.go('login');
+    }
+    else {$state.go('login');}
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -53,7 +56,7 @@ angular.module('myPiApp', ['ionic', 'myPiApp.controllers', 'myPiApp.services','n
     $http.get("http://www.pi2016.16mb.com/php/getAllHistory.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
     .success(function (res) {
       $localStorage.templog = res;
-      console.log($localStorage);
+      // console.log($localStorage);
     })
 
     $http.get("http://www.pi2016.16mb.com/php/getUserData.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
@@ -61,7 +64,7 @@ angular.module('myPiApp', ['ionic', 'myPiApp.controllers', 'myPiApp.services','n
       $localStorage.usuarios = res;
       console.log($localStorage.usuarios);
       console.log($localStorage.templog);
-      console.log($localStorage);
+      // console.log($localStorage);
     })
 
     $timeout(retrieve, 60000); //290000
