@@ -29,7 +29,7 @@ angular.module('myPiApp.controllers', ['ngStorage'])
   // $scope.data = [];
 
   $scope.createUser = function (user) {
-    var link = 'http://www.pi2016.16mb.com/php/cadastroUsuario.php';
+    var link = 'http://technikservicos.com.br/serverstatus/cadUser.php';
     // alert(user.password.length);
     if(user.username.length > 5 && user.password.length > 5){
       if (user && user.username && user.password) {
@@ -144,7 +144,7 @@ angular.module('myPiApp.controllers', ['ngStorage'])
     console.log("The loading indicator is now displayed");
   });
   var getLive = function () {
-    $http.get("http://www.pi2016.16mb.com/php/getLiveTemp.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
+    $http.get("http://technikservicos.com.br/serverstatus/getLiveTemp.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
     .success(function (res) {
       $scope.live = res;
     })

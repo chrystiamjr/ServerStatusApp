@@ -53,18 +53,16 @@ angular.module('myPiApp', ['ionic', 'myPiApp.controllers', 'myPiApp.services','n
 
   var retrieve  = function () {
 
-    $http.get("http://www.pi2016.16mb.com/php/getAllHistory.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
+    $http.get("http://technikservicos.com.br/serverstatus/getAllHistory.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
     .success(function (res) {
       $localStorage.templog = res;
       // console.log($localStorage);
     })
 
-    $http.get("http://www.pi2016.16mb.com/php/getUserData.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
+    $http.get("http://technikservicos.com.br/serverstatus/getUserData.php", {headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
     .success(function (res) {
+      console.log(res);
       $localStorage.usuarios = res;
-      console.log($localStorage.usuarios);
-      console.log($localStorage.templog);
-      // console.log($localStorage);
     })
 
     $timeout(retrieve, 60000); //290000
