@@ -5,14 +5,22 @@
   </ion-header-bar>
   <ion-content class="padding" ng-controller="AllHistoryCtrl">
 
-    <div class="card" ng-repeat="temp in resultadosGerais">
+    <div class="card" ng-repeat="temp in resultadosGerais | orderBy: '-horario'">
       <div class="item item-divider" style="text-align: center">
         <p><b>{{temp.horario}}</b></p>
       </div>
-      <div class="item item-text-wrap">
-        <p>
+      <div ng-if="temp.temperatura > 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(255, 0, 0, 0.7); text-align: center">
+        <p style="color: white;">
           Temperatura: {{temp.temperatura}} ºC <br>
-          Umidade do ar: {{temp.umidade}}%
+          Umidade do ar: {{temp.umidade}}% <br>
+          Ruido: <span ng-if="temp.ruido == 0">Som Ambiente</span><span ng-if="temp.ruido == 1">Equipamento Danoso</span><span ng-if="temp.ruido == 2">Interferência Humana</span>
+        </p>
+      </div>
+      <div ng-if="temp.temperatura <= 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(0, 0, 255, 0.7); text-align: center">
+        <p style="color: white;">
+          Temperatura: {{temp.temperatura}} ºC <br>
+          Umidade do ar: {{temp.umidade}}% <br>
+          Ruido: <span ng-if="temp.ruido == 0">Som Ambiente</span><span ng-if="temp.ruido == 1">Equipamento Danoso</span><span ng-if="temp.ruido == 2">Interferência Humana</span>
         </p>
       </div>
       <!--<div class="item item-divider">-->

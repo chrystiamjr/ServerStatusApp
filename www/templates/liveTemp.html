@@ -12,20 +12,27 @@
       </div>
 
       <div ng-if="live[0].temperatura <= 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(0, 0, 255, 0.7); height: 150px; text-align: center">
-        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 25px;">
+        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 20px;">
           Temperatura: {{t.temperatura}} ºC <br>
-          Umidade do ar: {{t.umidade}}%
+          Umidade do ar: {{t.umidade}}% <br>
+          Ruido: <span ng-if="t.ruido == 0">Som Ambiente</span><span ng-if="t.ruido == 1">Equipamento Danoso</span><span ng-if="t.ruido == 2">Interferência Humana</span>
         </h1>
       </div>
 
       <div ng-if="live[0].temperatura > 25" class="animate-if item item-text-wrap padding" style="background-color: rgba(255, 0, 0, 0.7); height: 150px; text-align: center">
-        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 25px;">
+        <h1 ng-repeat="t in live | limitTo: 1" style="color: white; margin-top: 22px; font-size: 20px;">
           Temperatura: {{t.temperatura}} ºC <br>
-          Umidade do ar: {{t.umidade}}%
+          Umidade do ar: {{t.umidade}}% <br>
+          Ruido: <span ng-if="t.ruido == 0">Som Ambiente</span><span ng-if="t.ruido == 1">Equipamento Danoso</span><span ng-if="t.ruido == 2">Interferência Humana</span>
         </h1>
       </div>
 
-      <div class="item item-divider"></div>
+      <div class="item item-divider" style="text-align: center">
+        <p ng-repeat="h in live | limitTo: 1">
+          <b ng-if="h.temperatura > 25">Situação: <span style="color: red">Alerta</span></b>
+          <b ng-if="h.temperatura <= 25">Situação: <span style="color: blue">Normal</span></b>
+        </p>
+      </div>
 
     </div>
     <hr style="margin-top: -10px;">

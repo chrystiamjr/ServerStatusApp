@@ -31,7 +31,7 @@ angular.module('myPiApp.controllers', ['ngStorage'])
   $scope.createUser = function (user) {
     var link = 'http://technikservicos.com.br/serverstatus/cadUser.php';
     // alert(user.password.length);
-    if(user.username.length > 5 && user.password.length > 5){
+    if(user.username.length >= 5 && user.password.length >= 5){
       if (user && user.username && user.password) {
         var dados = {
           username: user.username,
